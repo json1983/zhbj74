@@ -65,16 +65,17 @@ public final class R {
         public static final int progress_dialog_bg=0x7f020026;
         public static final int setting=0x7f020027;
         public static final int setting_press=0x7f020028;
-        public static final int shape_point_red=0x7f020029;
-        public static final int smartservice=0x7f02002a;
-        public static final int smartservice_press=0x7f02002b;
-        public static final int splash_bg_newyear=0x7f02002c;
-        public static final int splash_horse_newyear=0x7f02002d;
-        public static final int title_red_bg=0x7f02002e;
-        public static final int topic_title_arr=0x7f02002f;
-        public static final int topnews_item_default=0x7f020030;
-        public static final int xsearch_loading=0x7f020031;
-        public static final int xsearch_msg_pull_arrow_down=0x7f020032;
+        public static final int shape_point_gray=0x7f020029;
+        public static final int shape_point_red=0x7f02002a;
+        public static final int smartservice=0x7f02002b;
+        public static final int smartservice_press=0x7f02002c;
+        public static final int splash_bg_newyear=0x7f02002d;
+        public static final int splash_horse_newyear=0x7f02002e;
+        public static final int title_red_bg=0x7f02002f;
+        public static final int topic_title_arr=0x7f020030;
+        public static final int topnews_item_default=0x7f020031;
+        public static final int xsearch_loading=0x7f020032;
+        public static final int xsearch_msg_pull_arrow_down=0x7f020033;
     }
     public static final class id {
         public static final int action_settings=0x7f090008;
