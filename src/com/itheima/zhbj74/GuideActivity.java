@@ -2,18 +2,24 @@ package com.itheima.zhbj74;
 
 import java.util.ArrayList;
 
+import com.itheima.zhbj74.utils.PrefUtils;
+
 import android.R.integer;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 /**
  * @新手引导界面
@@ -26,7 +32,8 @@ public class GuideActivity extends Activity {
 	private ViewPager mViewPager;
 	private ArrayList<ImageView> mImageViewList;
 	private int[] mImageIds=new int[]{ R.drawable.guide_1,
-			R.drawable.guide_2, R.drawable.guide_3 };;
+			R.drawable.guide_2, R.drawable.guide_3 };
+	protected int mPointDis;// 小红点移动距离
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +53,18 @@ public class GuideActivity extends Activity {
 			@Override
 			public void onPageScrolled(int position, float positionOffset,
 					int positionOffsetPixels) {
-				// TODO Auto-generated method stub
+				// 当页面滑动过程中的回调
+				System.out.println("当前位置:" + position + ";移动偏移百分比:"
+						+ positionOffset);
+				// 更新小红点距离
+				int leftMargin = (int) (mPointDis * positionOffset) + position
+						* mPointDis;// 计算小红点当前的左边距
+				RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) ivRedPoint
+						.getLayoutParams();
+				params.leftMargin = leftMargin;// 修改左边距
+
+				// 重新设置布局参数
+				ivRedPoint.setLayoutParams(params);
 				
 			}
 
@@ -63,12 +81,48 @@ public class GuideActivity extends Activity {
 
 			@Override
 			public void onPageScrollStateChanged(int state) {
-				// TODO Auto-generated method stub
+				// 页面状态发生变化的回调
 				
 			}
 			
 			
 		});
+		// 计算两个圆点的距离
+				// 移动距离=第二个圆点left值 - 第一个圆点left值
+				// measure->layout(确定位置)->draw(activity的onCreate方法执行结束之后才会走此流程)
+				// mPointDis = llContainer.getChildAt(1).getLeft()
+				// - llContainer.getChildAt(0).getLeft();
+				// System.out.println("圆点距离:" + mPointDis);
+
+				// 监听layout方法结束的事件,位置确定好之后再获取圆点间距
+				// 视图树
+				ivRedPoint.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener(){
+
+					@Override
+					public void onGlobalLayout() {
+						// 移除监听,避免重复回调
+						ivRedPoint.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+						// ivRedPoint.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+						// layout方法执行结束的回调
+						mPointDis = llContainer.getChildAt(1).getLeft()
+								- llContainer.getChildAt(0).getLeft();
+						System.out.println("圆点距离:" + mPointDis);
+						
+					}
+					
+				});
+				btnStart.setOnClickListener(new OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						//更新sp, 已经不是第一次进入了
+						PrefUtils.setBoolean(getApplicationContext(), "is_first_enter", false);
+						startActivity(new Intent(getApplicationContext(), MainActivity.class));//跳到主页面
+						finish();
+						
+					}
+				});
+				
 		
 	}
 
