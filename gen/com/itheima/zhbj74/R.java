@@ -125,6 +125,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     }
     public static final class color {
         public static final int txt_guide_selector=0x7f080000;
+        public static final int txt_menu_selector=0x7f080001;
+        public static final int txt_tab_selector=0x7f080002;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -184,39 +186,54 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int smartservice_press=0x7f02002c;
         public static final int splash_bg_newyear=0x7f02002d;
         public static final int splash_horse_newyear=0x7f02002e;
-        public static final int title_red_bg=0x7f02002f;
-        public static final int topic_title_arr=0x7f020030;
-        public static final int topnews_item_default=0x7f020031;
-        public static final int xsearch_loading=0x7f020032;
-        public static final int xsearch_msg_pull_arrow_down=0x7f020033;
+        public static final int tab_gov_selector=0x7f02002f;
+        public static final int tab_home_selector=0x7f020030;
+        public static final int tab_news_selector=0x7f020031;
+        public static final int tab_setting_selector=0x7f020032;
+        public static final int tab_smart_selector=0x7f020033;
+        public static final int title_red_bg=0x7f020034;
+        public static final int topic_title_arr=0x7f020035;
+        public static final int topnews_item_default=0x7f020036;
+        public static final int xsearch_loading=0x7f020037;
+        public static final int xsearch_msg_pull_arrow_down=0x7f020038;
     }
     public static final class id {
-        public static final int action_settings=0x7f040011;
-        public static final int btn_menu=0x7f040010;
+        public static final int action_settings=0x7f040019;
+        public static final int btn_menu=0x7f040018;
         public static final int btn_start=0x7f040007;
-        public static final int fl_left_menu=0x7f04000d;
+        public static final int fl_left_menu=0x7f040015;
         public static final int fl_main=0x7f04000a;
         public static final int fullscreen=0x7f040003;
         public static final int imageView1=0x7f04000c;
         public static final int iv_red_point=0x7f040009;
         public static final int left=0x7f040000;
         public static final int ll_container=0x7f040008;
+        public static final int lv_list=0x7f040014;
         public static final int margin=0x7f040002;
         public static final int none=0x7f040004;
+        public static final int rb_gov=0x7f040012;
+        public static final int rb_home=0x7f04000f;
+        public static final int rb_news=0x7f040010;
+        public static final int rb_setting=0x7f040013;
+        public static final int rb_smart=0x7f040011;
+        public static final int rg_group=0x7f04000e;
         public static final int right=0x7f040001;
         public static final int rl_root=0x7f04000b;
         public static final int selected_view=0x7f040005;
-        public static final int slidingmenumain=0x7f04000e;
-        public static final int tv_title=0x7f04000f;
+        public static final int slidingmenumain=0x7f040016;
+        public static final int tv_title=0x7f040017;
+        public static final int vp_content=0x7f04000d;
         public static final int vp_guide=0x7f040006;
     }
     public static final class layout {
         public static final int activity_guide=0x7f030000;
         public static final int activity_main=0x7f030001;
         public static final int activity_splash=0x7f030002;
-        public static final int left_menu=0x7f030003;
-        public static final int slidingmenumain=0x7f030004;
-        public static final int title_bar=0x7f030005;
+        public static final int fragment_content=0x7f030003;
+        public static final int fragment_left_menu=0x7f030004;
+        public static final int left_menu=0x7f030005;
+        public static final int slidingmenumain=0x7f030006;
+        public static final int title_bar=0x7f030007;
     }
     public static final class menu {
         public static final int main=0x7f090000;
@@ -253,6 +270,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f070001;
+        public static final int Bottom_Tab_Style=0x7f070002;
     }
     public static final class styleable {
         /** Attributes that can be used with a SlidingMenu.
@@ -310,7 +328,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:behindOffset
+          @attr name com.itheima.zhbj74:behindOffset
         */
         public static final int SlidingMenu_behindOffset = 3;
         /**
@@ -324,7 +342,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:behindScrollScale
+          @attr name com.itheima.zhbj74:behindScrollScale
         */
         public static final int SlidingMenu_behindScrollScale = 5;
         /**
@@ -340,7 +358,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:behindWidth
+          @attr name com.itheima.zhbj74:behindWidth
         */
         public static final int SlidingMenu_behindWidth = 4;
         /**
@@ -354,7 +372,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:fadeDegree
+          @attr name com.itheima.zhbj74:fadeDegree
         */
         public static final int SlidingMenu_fadeDegree = 11;
         /**
@@ -368,7 +386,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:fadeEnabled
+          @attr name com.itheima.zhbj74:fadeEnabled
         */
         public static final int SlidingMenu_fadeEnabled = 10;
         /**
@@ -385,7 +403,7 @@ containing a value of this type.
 <tr><td><code>left</code></td><td>0</td><td></td></tr>
 <tr><td><code>right</code></td><td>1</td><td></td></tr>
 </table>
-          @attr name android:mode
+          @attr name com.itheima.zhbj74:mode
         */
         public static final int SlidingMenu_mode = 0;
         /**
@@ -395,7 +413,7 @@ containing a value of this type.
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name android:selectorDrawable
+          @attr name com.itheima.zhbj74:selectorDrawable
         */
         public static final int SlidingMenu_selectorDrawable = 13;
         /**
@@ -409,7 +427,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:selectorEnabled
+          @attr name com.itheima.zhbj74:selectorEnabled
         */
         public static final int SlidingMenu_selectorEnabled = 12;
         /**
@@ -419,7 +437,7 @@ containing a value of this type.
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name android:shadowDrawable
+          @attr name com.itheima.zhbj74:shadowDrawable
         */
         public static final int SlidingMenu_shadowDrawable = 8;
         /**
@@ -435,7 +453,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:shadowWidth
+          @attr name com.itheima.zhbj74:shadowWidth
         */
         public static final int SlidingMenu_shadowWidth = 9;
         /**
@@ -453,7 +471,7 @@ containing a value of this type.
 <tr><td><code>fullscreen</code></td><td>1</td><td></td></tr>
 <tr><td><code>none</code></td><td>2</td><td></td></tr>
 </table>
-          @attr name android:touchModeAbove
+          @attr name com.itheima.zhbj74:touchModeAbove
         */
         public static final int SlidingMenu_touchModeAbove = 6;
         /**
@@ -471,7 +489,7 @@ containing a value of this type.
 <tr><td><code>fullscreen</code></td><td>1</td><td></td></tr>
 <tr><td><code>none</code></td><td>2</td><td></td></tr>
 </table>
-          @attr name android:touchModeBehind
+          @attr name com.itheima.zhbj74:touchModeBehind
         */
         public static final int SlidingMenu_touchModeBehind = 7;
         /**
@@ -481,7 +499,7 @@ containing a value of this type.
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name android:viewAbove
+          @attr name com.itheima.zhbj74:viewAbove
         */
         public static final int SlidingMenu_viewAbove = 1;
         /**
@@ -491,7 +509,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name android:viewBehind
+          @attr name com.itheima.zhbj74:viewBehind
         */
         public static final int SlidingMenu_viewBehind = 2;
     };
