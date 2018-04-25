@@ -2,11 +2,23 @@ package com.itheima.zhbj74.fragment;
 
 import java.util.ArrayList;
 
+import com.itheima.zhbj74.MainActivity;
 import com.itheima.zhbj74.R;
+import com.itheima.zhbj74.base.BasePager;
+import com.itheima.zhbj74.base.impl.GovAffairsPager;
+import com.itheima.zhbj74.base.impl.HomePager;
+import com.itheima.zhbj74.base.impl.NewsCenterPager;
+import com.itheima.zhbj74.base.impl.SettingPager;
+import com.itheima.zhbj74.base.impl.SmartServicePager;
 import com.itheima.zhbj74.view.NoScrollViewPager;
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 
 public class ContentFragment extends BaseFragment {
 
@@ -25,8 +37,129 @@ public class ContentFragment extends BaseFragment {
 
 	@Override
 	public void initData() {
-		// TODO Auto-generated method stub
+		mPagers = new ArrayList<BasePager>();
+		// 添加五个标签页
+		// 添加五个标签页
+		mPagers.add(new HomePager(mActivity));
+		mPagers.add(new NewsCenterPager(mActivity));
+		mPagers.add(new SmartServicePager(mActivity));
+		mPagers.add(new GovAffairsPager(mActivity));
+		mPagers.add(new SettingPager(mActivity));
+		mViewPager.setAdapter(new ContentAdapter());
+		rgGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(RadioGroup group, int checkedId) {
+				switch (checkedId) {
+				case R.id.rb_home:
+					mViewPager.setCurrentItem(0, false);
+					break;
+				case R.id.rb_news:
+					// 新闻中心
+					mViewPager.setCurrentItem(1, false);
+					break;
+				case R.id.rb_smart:
+					// 智慧服务
+					mViewPager.setCurrentItem(2, false);
+					break;
+				case R.id.rb_gov:
+					// 政务
+					mViewPager.setCurrentItem(3, false);
+					break;
+				case R.id.rb_setting:
+					// 设置
+					mViewPager.setCurrentItem(4, false);
+					break;
+
+				default:
+					break;
+				}
+
+			}
+		});
+		mViewPager.setOnPageChangeListener(new OnPageChangeListener() {
+
+			@Override
+			public void onPageSelected(int position) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void onPageScrolled(int position, float positionOffset,
+					int positionOffsetPixels) {
+				BasePager pager = mPagers.get(position);
+				pager.initData();
+				if (position == 0 || position == mPagers.size() - 1) {
+					// 首页和设置页要禁用侧边栏
+					setSlidingMenuEnable(false);
+				} else {
+					// 其他页面开启侧边栏
+					setSlidingMenuEnable(true);
+				}
+			}
+
+			@Override
+			public void onPageScrollStateChanged(int state) {
+				// TODO Auto-generated method stub
+
+			}
+		});
+		// 手动加载第一页数据
+		mPagers.get(0).initData();
+		// 首页禁用侧边栏
+		setSlidingMenuEnable(false);
+	}
+
+	/**
+	 * 开启或禁用侧边栏
+	 * 
+	 * @param enable
+	 */
+	private void setSlidingMenuEnable(boolean enable) {
+		MainActivity mainUI = (MainActivity) mActivity;
+		SlidingMenu slidingMenu = mainUI.getSlidingMenu();
+		if (enable) {
+			slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+		} else {
+			slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
+		}
+	}
+
+	class ContentAdapter extends PagerAdapter {
+
+		@Override
+		public int getCount() {
+			// TODO Auto-generated method stub
+			return mPagers.size();
+		}
+
+		@Override
+		public boolean isViewFromObject(View view, Object object) {
+			// TODO Auto-generated method stub
+			return view == object;
+		}
+
+		public void destroyItem(android.view.ViewGroup container, int position,
+				Object object) {
+			container.removeView((View) object);
+		};
+
+		@Override
+		public Object instantiateItem(ViewGroup container, int position) {
+			BasePager pager = mPagers.get(position);
+			View view = pager.mRootView;
+			// pager.initData();// 初始化数据, viewpager会默认加载下一个页面,
+			// 为了节省流量和性能,不要在此处调用初始化数据的方法
+			container.addView(view);
+			return view;
+		}
 
 	}
 
+	// 获取新闻中心页面
+	public NewsCenterPager getNewsCenterPager() {
+		NewsCenterPager pager = (NewsCenterPager) mPagers.get(1);
+		return pager;
+	}
 }

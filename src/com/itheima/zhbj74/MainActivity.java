@@ -8,6 +8,7 @@ import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
@@ -43,5 +44,19 @@ public class MainActivity extends SlidingFragmentActivity {
 		// fm.findFragmentByTag(TAG_LEFT_MENU);//根据标记找到对应的fragment
 
 	}
+	// 获取侧边栏fragment对象
+		public LeftMenuFragment getLeftMenuFragment() {
+			FragmentManager fm = getSupportFragmentManager();
+			LeftMenuFragment fragment = (LeftMenuFragment) fm
+					.findFragmentByTag(TAG_LEFT_MENU);// 根据标记找到对应的fragment
+			return fragment;
+		}
 
+		// 获取主页fragment对象
+		public ContentFragment getContentFragment() {
+			FragmentManager fm = getSupportFragmentManager();
+			ContentFragment fragment = (ContentFragment) fm
+					.findFragmentByTag(TAG_CONTENT);// 根据标记找到对应的fragment
+			return fragment;
+		}
 }

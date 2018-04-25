@@ -198,42 +198,44 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int xsearch_msg_pull_arrow_down=0x7f020038;
     }
     public static final class id {
-        public static final int action_settings=0x7f040019;
-        public static final int btn_menu=0x7f040018;
+        public static final int action_settings=0x7f04001a;
+        public static final int btn_menu=0x7f040019;
         public static final int btn_start=0x7f040007;
-        public static final int fl_left_menu=0x7f040015;
+        public static final int fl_content=0x7f04000d;
+        public static final int fl_left_menu=0x7f040016;
         public static final int fl_main=0x7f04000a;
         public static final int fullscreen=0x7f040003;
         public static final int imageView1=0x7f04000c;
         public static final int iv_red_point=0x7f040009;
         public static final int left=0x7f040000;
         public static final int ll_container=0x7f040008;
-        public static final int lv_list=0x7f040014;
+        public static final int lv_list=0x7f040015;
         public static final int margin=0x7f040002;
         public static final int none=0x7f040004;
-        public static final int rb_gov=0x7f040012;
-        public static final int rb_home=0x7f04000f;
-        public static final int rb_news=0x7f040010;
-        public static final int rb_setting=0x7f040013;
-        public static final int rb_smart=0x7f040011;
-        public static final int rg_group=0x7f04000e;
+        public static final int rb_gov=0x7f040013;
+        public static final int rb_home=0x7f040010;
+        public static final int rb_news=0x7f040011;
+        public static final int rb_setting=0x7f040014;
+        public static final int rb_smart=0x7f040012;
+        public static final int rg_group=0x7f04000f;
         public static final int right=0x7f040001;
         public static final int rl_root=0x7f04000b;
         public static final int selected_view=0x7f040005;
-        public static final int slidingmenumain=0x7f040016;
-        public static final int tv_title=0x7f040017;
-        public static final int vp_content=0x7f04000d;
+        public static final int slidingmenumain=0x7f040017;
+        public static final int tv_title=0x7f040018;
+        public static final int vp_content=0x7f04000e;
         public static final int vp_guide=0x7f040006;
     }
     public static final class layout {
         public static final int activity_guide=0x7f030000;
         public static final int activity_main=0x7f030001;
         public static final int activity_splash=0x7f030002;
-        public static final int fragment_content=0x7f030003;
-        public static final int fragment_left_menu=0x7f030004;
-        public static final int left_menu=0x7f030005;
-        public static final int slidingmenumain=0x7f030006;
-        public static final int title_bar=0x7f030007;
+        public static final int base_pager=0x7f030003;
+        public static final int fragment_content=0x7f030004;
+        public static final int fragment_left_menu=0x7f030005;
+        public static final int left_menu=0x7f030006;
+        public static final int slidingmenumain=0x7f030007;
+        public static final int title_bar=0x7f030008;
     }
     public static final class menu {
         public static final int main=0x7f090000;
